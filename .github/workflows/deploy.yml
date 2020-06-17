@@ -1,9 +1,4 @@
 name: Build and Deploy
-on:
-  push:
-    branches:
-      - master
-name: Build and Deploy
 on: [push]
 jobs:
   build-and-deploy:
