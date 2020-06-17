@@ -3,7 +3,7 @@
     <home v-if="$store.state.user && $store.state.locale && $store.state.online"/>
     <login v-if="!$store.state.user && $store.state.locale"/>
     <language v-if="!$store.state.locale"/>
-    <offline v-if="!store.state.online"/>
+    <offline v-if="!$store.state.online"/>
   </v-app>
 </template>
 
@@ -22,12 +22,11 @@ import Offline from '@/components/util/OfflineComponent'
       Offline
     },
     beforeCreate () {
-      let self = this
       window.addEventListener('offline', () => {
-        self.$store.commit('setOnline', false)
+        this.$store.commit('setOnline', false)
       })
       window.addEventListener('online', () => {
-        self.$store.commit('setOnline', true)
+        this.$store.commit('setOnline', true)
       })
     }
   }
