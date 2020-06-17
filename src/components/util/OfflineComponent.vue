@@ -6,7 +6,7 @@
             <div class="col-12 col-md-6 text-center">
                 <v-card>
                     <v-card-text>
-                        <p class="display-1 text--primary">
+                        <p class="text-h5 text--primary">
                             {{ $t('offline.message') }}
                         </p>
                     </v-card-text>
