@@ -1,5 +1,5 @@
 <template>
-    <v-card style="ma-2">
+    <v-card class="ma-2">
         <v-card-text>
             <p class="text-h4 text--primary">
                 {{ formatDate(laundry.planned) }}

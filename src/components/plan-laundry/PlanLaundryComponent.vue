@@ -12,7 +12,8 @@
       <new-laundry
         v-if="newLaundry"
         @create="createNewLaundry"
-        @cancel="newLaundry = false"/>
+        @cancel="newLaundry = false"
+        style="margin: 8px"/>
       <v-btn
         v-if="!newLaundry"
         @click="newLaundry = true"
@@ -20,7 +21,7 @@
         color="white"
         width="80%"
         height="80%"
-        class="ma-4">
+        style="margin: 16px">
         <v-icon primary>mdi-plus</v-icon>
         <span>{{ $t('planLaundry.newLaundry') }}</span>
       </v-btn>
