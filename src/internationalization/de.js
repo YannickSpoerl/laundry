@@ -10,7 +10,6 @@ export default {
     notReady: 'nicht bereit',
     login: {
         title: 'Ich bin {name}',
-        subtitle: 'Sag mir, wer du bist!',
         addUser: 'Neuer Nutzer',
         namePlaceholder: 'Mein Name ist ...',
         errMssg1: 'Name darf nicht leer sein!',
@@ -19,10 +18,10 @@ export default {
     language: {
         de: 'Deutsch',
         en: 'Englisch',
-        subtitle: 'Sag mir, welche Sprache du sprichst!',
         title: 'Ich spreche {language}',
     },
     planLaundry: {
+        title: "Geplante Wäschen",
         newLaundry: 'Neue Wäsche',
     },
     newLaundry: {
@@ -37,5 +36,11 @@ export default {
         participate: 'Teilnehmen',
         loaded: 'Wäsche beladen',
         plannedBy: 'Geplant von {mate}'
+    },
+    finishLaundry: {
+        title: 'Vergangene Wäschen'
+    },
+    pin: {
+        title:"Gebe PIN für {mate} ein",
     }
 }

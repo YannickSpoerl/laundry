@@ -1,24 +1,24 @@
 <template>
-    <v-main>
-        <div>
-            <plan-laundry :laundries="plannedLaundries"/>
-        </div>
-        <div>
-            <finished-laundry :laundries="finishedLaundries"/>
+  <v-main class="primary">
+    <div>
+      <plan-laundry :laundries="plannedLaundries"/>
     </div>
-    </v-main>
+    <div>
+      <finish-laundry :laundries="finishedLaundries"/>
+    </div>
+  </v-main>
 </template>
 
 <script>
 import { vuefire } from '@/plugins/vuefire'
 import PlanLaundry from '@/components/plan-laundry/PlanLaundryComponent'
-import FinishedLaundry from '@/components/finished-laundry/FinishedLaundryComponent'
+import FinishLaundry from '@/components/finish-laundry/FinishLaundryComponent'
 
   export default {
     name: 'home',
     components: {
       PlanLaundry,
-      FinishedLaundry
+      FinishLaundry
     },
     data: () => ({
       laundries: []
@@ -31,7 +31,7 @@ import FinishedLaundry from '@/components/finished-laundry/FinishedLaundryCompon
       },
       finishedLaundries () {
         return this.laundries.filter((laundry) => laundry.started).sort((laundry1, laundry2) => {
-          return laundry1.planned.toDate() - laundry2.planned.toDate()
+          return laundry2.planned.toDate() - laundry1.planned.toDate()
         })
       }
     },

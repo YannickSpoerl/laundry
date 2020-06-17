@@ -5,15 +5,19 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    laundryUser: null,
-    locale: null
+    user: null,
+    locale: null,
+    pin: false
   },
   mutations: {
     login (state, user) {
-      state.laundryUser = user
+      state.user = user
     },
     setLocale (state, locale) {
       state.locale = locale
+    },
+    pinEntered (state, pin) {
+      state.pin = pin
     }
   },
   actions: {

@@ -1,18 +1,26 @@
 <template>
-  <div class="d-flex flex-wrap">
+  <div class="d-flex flex-wrap primary">
+    <v-card
+      elevation="24"
+      width="100%"
+      color="white ma-2 pa-4">
+      <span class="text-h5">
+        {{ $t('planLaundry.title') }}
+      </span>
+    </v-card>
     <div class="col-12 col-md-6 col-lg-4 col-xl-3 text-center">
       <new-laundry
         v-if="newLaundry"
         @create="createNewLaundry"
         @cancel="newLaundry = false"/>
       <v-btn
-      width="80%"
-      class="ma-4"
-      height="80%"
         v-if="!newLaundry"
         @click="newLaundry = true"
         outlined
-        color="primary">
+        color="white"
+        width="80%"
+        height="80%"
+        class="ma-4">
         <v-icon primary>mdi-plus</v-icon>
         <span>{{ $t('planLaundry.newLaundry') }}</span>
       </v-btn>
@@ -22,12 +30,12 @@
       :key="index"
       class="col-12 col-md-6 col-lg-4 col-xl-3">
       <planned-laundry
-        :laundry="laundry"
         @start="startLaundry(laundry)"
         @load="loadLaundry(laundry)"
         @participate="participate(laundry)"
         @full="fillLaundry(laundry)"
-        @delete="deleteLaundry(laundry)"/>
+        @delete="deleteLaundry(laundry)"
+        :laundry="laundry"/>
     </div>
   </div>
 </template>
@@ -64,11 +72,11 @@ export default {
         transactions.startLaundry(laundry)
       },
       participate (laundry) {
-        laundry.participants.push(this.$store.state.laundryUser)
+        laundry.participants.push(this.$store.state.user)
         transactions.participate(laundry, laundry.participants)
       },
       loadLaundry (laundry) {
-        laundry.loaded.push(this.$store.state.laundryUser)
+        laundry.loaded.push(this.$store.state.user)
         transactions.load(laundry, laundry.loaded)
       }
     }

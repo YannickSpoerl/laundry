@@ -19,8 +19,8 @@ new Vue({
   i18n,
   vuetify,
   beforeCreate () {
-    let laundryUser = cookieService.getUser()
-    if (laundryUser) store.commit('login', laundryUser)
+    let user = cookieService.getUser()
+    if (user) store.commit('login', user)
     let language = cookieService.getLanguage()
     if (language) store.commit('setLocale', language)
   },

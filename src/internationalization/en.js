@@ -10,7 +10,6 @@ export default {
     notReady: 'not ready',
     login: {
         title: 'I am {name}',
-        subtitle: 'Tell me who you are!',
         addUser: 'Add user',
         namePlaceholder: 'My name is ...',
         errMssg1: 'Name must not be empty!',
@@ -19,10 +18,10 @@ export default {
     language: {
         de: 'German',
         en: 'English',
-        subtitle: 'Tell me what language you are speaking!',
         title: 'I speak {language}',
     },
     planLaundry: {
+        title: "Planned laundries",
         newLaundry: 'New Laundry',
     },
     newLaundry: {      
@@ -37,5 +36,11 @@ export default {
         participate: 'Participate',
         loaded: 'Laundry loaded',
         plannedBy: 'Planned by {mate}'
+    },
+    finishLaundry: {
+        title: 'Past Laundries'
+    },
+    pin: {
+        title:"Enter PIN for {mate}",
     }
 }

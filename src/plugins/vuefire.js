@@ -23,9 +23,7 @@ export { Timestamp, GeoPoint }
 
 export const transactions = {
   addUser: function (user) {
-    vuefire.collection('flatmates').add({
-      name: user
-    })
+    vuefire.collection('flatmates').add({ name: user })
   },
   addLaundry: function (laundry) {
     vuefire.collection('laundries').add(laundry)
@@ -34,15 +32,15 @@ export const transactions = {
     vuefire.collection('laundries').doc(laundry.id).delete()
   },
   fillLaundry: function (laundry) {
-    vuefire.collection('laundries').doc(laundry.id).update({full: true})
+    vuefire.collection('laundries').doc(laundry.id).update({ full: true })
   },
   startLaundry: function (laundry) {
-    vuefire.collection('laundries').doc(laundry.id).update({started: true})
+    vuefire.collection('laundries').doc(laundry.id).update({ started: true })
   },
   participate: function (laundry, participants) {
-    vuefire.collection('laundries').doc(laundry.id).update({participants: participants})
+    vuefire.collection('laundries').doc(laundry.id).update({ participants: participants })
   },
   load: function (laundry, loaded) {
-    vuefire.collection('laundries').doc(laundry.id).update({loaded: loaded})
+    vuefire.collection('laundries').doc(laundry.id).update({ loaded: loaded })
   }
 }
