@@ -8,7 +8,7 @@
         {{ $t('planLaundry.title') }}
       </span>
     </v-card>
-    <div class="col-12 col-md-6 col-lg-4 col-xl-3 text-center">
+    <div class="col-12 col-md-6 col-lg-4 col-xl-3 text-center" style="margin: 16px">
       <new-laundry
         v-if="newLaundry"
         @create="createNewLaundry"
@@ -20,8 +20,7 @@
         outlined
         color="white"
         width="80%"
-        height="80%"
-        style="margin: 16px">
+        height="80%">
         <v-icon primary>mdi-plus</v-icon>
         <span>{{ $t('planLaundry.newLaundry') }}</span>
       </v-btn>
