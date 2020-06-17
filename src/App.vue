@@ -22,11 +22,12 @@ import Offline from '@/components/util/OfflineComponent'
       Offline
     },
     beforeCreate () {
+      let self = this
       window.addEventListener('offline', () => {
-        this.$store.commit('setOnline', false)
+        self.$store.commit('setOnline', false)
       })
       window.addEventListener('online', () => {
-        this.$store.commit('setOnline', true)
+        self.$store.commit('setOnline', true)
       })
     }
   }
