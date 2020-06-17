@@ -8,6 +8,9 @@ export default {
     delete: 'Löschen',
     ready: 'bereit',
     notReady: 'nicht bereit',
+    offline: {
+        message: 'Keine Internetverbindung. Bitte verbinde dich, um die App zu nutzen!'
+    },
     login: {
         title: 'Ich bin {name}',
         addUser: 'Neuer Nutzer',

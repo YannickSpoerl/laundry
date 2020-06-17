@@ -23,6 +23,11 @@ new Vue({
     if (user) store.commit('login', user)
     let language = cookieService.getLanguage()
     if (language) store.commit('setLocale', language)
+    if (navigator.onLine) {
+      store.commit('setOnline', true)
+    } else {
+      store.commit('setOnline', false)
+    }
   },
   render: h => h(App)
 }).$mount('#app')

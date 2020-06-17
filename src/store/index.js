@@ -7,7 +7,8 @@ export default new Vuex.Store({
   state: {
     user: null,
     locale: null,
-    pin: false
+    pin: false,
+    online: null
   },
   mutations: {
     login (state, user) {
@@ -18,6 +19,9 @@ export default new Vuex.Store({
     },
     pinEntered (state, pin) {
       state.pin = pin
+    },
+    setOnline (state, bool) {
+      state.online = bool
     }
   },
   actions: {
