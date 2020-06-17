@@ -11,6 +11,7 @@
     <div
       v-for="(laundry, index) in laundries"
       :key="index"
+      style="margin: 8px"
       class="col-12 col-md-6 col-lg-4 col-xl-3">
       <finished-laundry :laundry="laundry"/>
     </div>
