@@ -5,6 +5,7 @@
 ### Added
 
 - Offline View
+- Changelog
 
 ### Fixed
 
@@ -13,7 +14,7 @@
 
 ### Changed
 
-- Start using "changelog" over "change log" since it's the common usage.
+- Improved Readme
 
 ### Removed
 
