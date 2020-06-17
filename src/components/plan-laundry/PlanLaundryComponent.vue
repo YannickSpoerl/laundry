@@ -3,7 +3,7 @@
     <v-card
       elevation="24"
       width="100%"
-      color="white ma-2 pa-4">
+      class="white ma-2 pa-4">
       <span class="text-h5">
         {{ $t('planLaundry.title') }}
       </span>
