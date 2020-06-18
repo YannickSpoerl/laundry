@@ -5,7 +5,8 @@
         {{ $t('planLaundry.title') }}
       </span>
     </v-card>
-    <div class="col-12 col-md-6 col-lg-4 col-xl-3 text-center" style="margin: 16px">
+    <div class="col-12 col-md-6 col-lg-4 col-xl-3 text-center" style="margin: 16px"
+    :style="{width: $vuetify.breakpoint.mdAndUp? '100%' : ''}">
       <new-laundry
         v-if="newLaundry"
         @create="createNewLaundry" @cancel="newLaundry = false"
