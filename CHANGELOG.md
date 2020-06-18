@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased]
+## 0.2.0 - 18.6.20
 
 ### Added
 
@@ -10,7 +10,7 @@
 ### Fixed
 
 - Margins
-- Wrong locale add startup
+- Wrong locale at startup
 
 ### Changed
 
@@ -18,6 +18,6 @@
 
 ### Removed
 
-## 0.0.1 - 18.6.2020
+## 0.1.0 - 17.6.2020
 
 - Initial release
