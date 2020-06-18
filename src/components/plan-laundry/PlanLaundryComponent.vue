@@ -13,7 +13,7 @@
       <v-btn
         v-if="!newLaundry"
         @click="newLaundry = true"
-        outlined color="white" width="80%" height="80%">
+        outlined color="white" width="80%" height="80%" class="ma-4">
         <v-icon primary>mdi-plus</v-icon>
         <span>{{ $t('planLaundry.newLaundry') }}</span>
       </v-btn>
