@@ -1,64 +1,172 @@
-
-<h1 align="center">
-  <br>
-    Laundry
-</h1>
-
-<h4 align="center">Plan the laundry in your shared flat!</h4>
-
+<br />
 <p align="center">
+  <a href="https://github.com/YannickSpoerl/laundry">
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">LAUNDRY</h3>
+
+  <p align="center">
+    Plan laundry in your shared flat!
+    <br />
+    <br />
+    <a href="https://laundry.yannickspoerl.de">View Demo</a>
+    ·
+    <a href="https://github.com/YannickSpoerl/laundry/blob/master/CHANGELOG.md">Changelog</a>
+    ·
+    <a href="https://github.com/YannickSpoerl/laundry/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/YannickSpoerl/laundry/issues">Request Feature</a>
+  </p>
 </p>
 
-<p align="center">
-  <a href="#development">Development</a> •
-  <a href="#changelog">Changelog</a> •
-  <a href="#license">License</a> •
-  <a href="https://github.com/YannickSpoerl/laundry/blob/master/SECURITY.md">Security</a> •
-    <a href="https://github.com/YannickSpoerl/laundry/issues">Issues</a> 
-</p>
 
-## Development
 
-### Set up
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
+
+* [About the Project](#about-the-project)
+  * [Built With](#built-with)
+* [Getting Started](#getting-started)
+  * [Prerequisites](#prerequisites)
+  * [Installation](#installation)
+* [Usage](#usage)
+* [Roadmap](#roadmap)
+* [Contributing](#contributing)
+* [License](#license)
+* [Contact](#contact)
+
+
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+A Progressive Web App to manage laundry in your shared flat on your phone or desktop. Hosted on Github, with Firestore as Database for Realtime Sync.
+
+![laundryscreenshot1]()
+![laundryscreenshot2]()
+
+
+### Built With
+
+* [Vue.js](https://vuejs.org/)
+* [Firebase](https://firebase.google.com/)
+* [Vuetify](https://vuetifyjs.com)
+* [Vuefire](https://vuefire.vuejs.org/)
+* [Vuex](https://vuex.vuejs.org/)
+* [Vuei18n](https://kazupon.github.io/vue-i18n/)
+
+
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+To get a local copy up and running follow these simple steps.
+
+### Prerequisites
+
+This is an example of how to list things you need to use the software and how to install them.
+* npm
+```sh
+npm install npm@latest -g
 ```
+
+### Installation
+ 
+1. Clone the repo
+```sh
 git clone https://github.com/YannickSpoerl/laundry.git
-cd laundry
+```
+2. Install NPM packages
+```sh
 npm install --save
 ```
 
-### Add your firebase config to ``src/plugins/vuefire``
-```
-var firebaseConfig = {
-  apiKey: "api-key",
-  authDomain: "project-id.firebaseapp.com",
-  databaseURL: "https://project-id.firebaseio.com",
-  projectId: "project-id",
-  storageBucket: "project-id.appspot.com",
-  messagingSenderId: "sender-id",
-  appId: "app-id",
-  measurementId: "G-measurement-id",
+
+
+<!-- USAGE EXAMPLES -->
+## Usage
+
+Add your firebase config to ``src/app.config.json``:
+```json
+firebaseConfig: {
+  "apiKey": "api-key",
+  "authDomain": "project-id.firebaseapp.com",
+  "databaseURL": "https://project-id.firebaseio.com",
+  "projectId": "project-id",
+  "storageBucket": "project-id.appspot.com",
+  "messagingSenderId": "sender-id",
+  "appId": "app-id",
 }
 ```
 
-### Compile with hot-reloads for development
-```
-npm run serve
+Create following collections in the firebase-database:
+
+- ``flatmates``, with sample document:
+```json
+{
+  "name": "John Doe"
+}
 ```
 
-### Compile and minify for production
+- ``categories``, with sample document:
+```json
+{
+  "name": "Light"
+}
 ```
-npm run build
+- ``temperatures``, with sample document:
+```json
+{
+  "degree": 60"
+}
 ```
 
-### Lint and fix files
+- ``laundries``, with sample document:
+```json
+{
+  "created": "8. June 2020 at 11:08:00 UTC+2",
+  "planned": "12. June 2020 at 14:00:00 UTC+2",
+  "plannedBy": "John Doe",
+  "category": "Light",
+  "temperature": 60,
+  "participants": [ "John Doe" ],
+  "loaded": [],
+  "full": false,
+  "started": false
+}
 ```
-npm run lint
-```
 
-## Changelog
+<!-- ROADMAP -->
+## Roadmap
 
-- [Changelog](https://github.com/YannickSpoerl/laundry/blob/master/CHANGELOG.md).
+See the [open issues](https://github.com/YannickSpoerl/laundry/issues) for a list of proposed features (and known issues).
 
+
+
+<!-- CONTRIBUTING -->
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+
+
+<!-- LICENSE -->
 ## License
 
-- [License](https://github.com/YannickSpoerl/laundry/blob/master/LICENSE.md).
+Distributed under the MIT License. See [LICENSE](https://github.com/YannickSpoerl/laundry/blob/master/LICENSE.md) for more information.
+
+
+
+<!-- CONTACT -->
+## Contact
+
+Yannick Spoerl - [@yannickspoerl](https://twitter.com/yannickspoerl)
+
+Project Link: [https://github.com/YannickSpoerl/laundry](https://github.com/YannickSpoerl/laundry)

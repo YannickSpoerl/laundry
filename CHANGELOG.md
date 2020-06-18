@@ -10,11 +10,11 @@
 ### Fixed
 
 - Margins
-
+- Wrong locale add startup
 
 ### Changed
 
-- Improved Readme
+- Readme
 
 ### Removed
 
