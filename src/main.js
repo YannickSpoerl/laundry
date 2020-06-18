@@ -22,7 +22,10 @@ new Vue({
     let user = cookieService.getUser()
     if (user) store.commit('login', user)
     let language = cookieService.getLanguage()
-    if (language) store.commit('setLocale', language)
+    if (language) {
+      store.commit('setLocale', language)
+      i18n.locale = language
+    }
     if (navigator.onLine) {
       store.commit('setOnline', true)
     } else {
