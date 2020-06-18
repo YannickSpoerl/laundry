@@ -4,16 +4,16 @@ import config from '@/app.config.json'
 
 const firebaseConfig = config.firebaseConfig
 
-// Get a Firestore instance
+/**
+ * get firebase instace
+ */
 export const vuefire = firebase
   .initializeApp(firebaseConfig)
   .firestore()
 
-// Export types that exists in Firestore
-// This is not always necessary, but it's used in other examples
-const { Timestamp, GeoPoint } = firebase.firestore
-export { Timestamp, GeoPoint }
-
+/**
+ * define transactions to firestore
+ */
 export const transactions = {
   addUser: function (user) {
     vuefire.collection('flatmates').add({ name: user })
@@ -30,10 +30,10 @@ export const transactions = {
   startLaundry: function (laundry) {
     vuefire.collection('laundries').doc(laundry.id).update({ started: true })
   },
-  participate: function (laundry, participants) {
-    vuefire.collection('laundries').doc(laundry.id).update({ participants: participants })
+  updateParticipants: function (laundry) {
+    vuefire.collection('laundries').doc(laundry.id).update({ participants: laundry.participants })
   },
-  load: function (laundry, loaded) {
-    vuefire.collection('laundries').doc(laundry.id).update({ loaded: loaded })
+  updateLoaded: function (laundry) {
+    vuefire.collection('laundries').doc(laundry.id).update({ loaded: laundry.loaded })
   }
 }

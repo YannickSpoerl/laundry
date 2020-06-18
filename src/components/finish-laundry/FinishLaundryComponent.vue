@@ -1,18 +1,13 @@
 <template>
   <div class="d-flex flex-wrap primary">
-    <v-card
-      elevation="24"
-      width="100%"
-      class="white ma-2 pa-4">
+    <v-card elevation="24" width="100%" class="white ma-2 pa-4">
       <span class="text-h5">
         {{ $t('finishLaundry.title') }}
       </span>
     </v-card>
     <div
-      v-for="(laundry, index) in laundries"
-      :key="index"
-      style="margin: 8px"
-      class="col-12 col-md-6 col-lg-4 col-xl-3">
+      v-for="(laundry, index) in laundries" :key="index"
+      style="margin: 8px" class="col-12 col-md-6 col-lg-4 col-xl-3">
       <finished-laundry :laundry="laundry"/>
     </div>
   </div>

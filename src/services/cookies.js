@@ -2,6 +2,9 @@ import config from '@/app.config.json'
 
 const prefix = config.cookiePrefix
 
+/**
+ * get/ add cookies from/ to localstorage
+ */
 export default {
     setUser: function (user) {
         localStorage.setItem(prefix +  '-user', user)
@@ -9,10 +12,10 @@ export default {
     getUser: function () {
         return localStorage.getItem(prefix + '-user')
     },
-    getLanguage: function () {
+    getLocale: function () {
         return localStorage.getItem(prefix + '-locale')
     },
-    setLanguage: function (locale) {
+    setLocale: function (locale) {
         localStorage.setItem(prefix + '-locale', locale)
     },
     getPin: function () {

@@ -31,7 +31,6 @@
 </template>
 
 <script>
-import cookieService from '@/services/cookies'
 import { vuefire } from '@/plugins/vuefire'
 
 export default {
@@ -46,12 +45,6 @@ export default {
         console.log(this.flatmates.find((mate) => mate.name === this.$store.state.user))
         if (this.$store.state.pin) {
             console.log(this.flatmates.find((mate) => mate.name === this.$store.state.user))
-        }
-    },
-    methods: {
-        confirm () {
-            cookieService.setLanguage(this.selectedLanguage)
-            this.$store.commit('setLocale', this.selectedLanguage)
         }
     },
     firestore: {

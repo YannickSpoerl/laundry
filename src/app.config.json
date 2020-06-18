@@ -1,4 +1,7 @@
 {
+    "defaults": {
+      "laundryStartTime": "08:00"
+    },
     "primaryColor": "#009587",
     "cookiePrefix": "laundry",
     "firebaseConfig":  {

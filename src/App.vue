@@ -21,6 +21,9 @@ import Offline from '@/components/util/OfflineComponent'
       Language,
       Offline
     },
+    /**
+     * catch offline-online events
+     */
     beforeMount () {
       window.addEventListener('offline', () => {
         this.$store.commit('setOnline', false)

@@ -24,11 +24,17 @@ import FinishLaundry from '@/components/finish-laundry/FinishLaundryComponent'
       laundries: []
     }),
     computed: {
+      /**
+       * remove started laundries, sort nearest to top
+       */
       plannedLaundries () {
         return this.laundries.filter((laundry) => !laundry.started).sort((laundry1, laundry2) => {
           return laundry1.planned.toDate() - laundry2.planned.toDate()
         })
       },
+      /**
+       * remove unstarted laundries, sort latest to top
+       */
       finishedLaundries () {
         return this.laundries.filter((laundry) => laundry.started).sort((laundry1, laundry2) => {
           return laundry2.planned.toDate() - laundry1.planned.toDate()

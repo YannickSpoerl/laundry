@@ -7,11 +7,8 @@
             <v-menu offset-y>
                 <template v-slot:activator="{ on, attrs }">
                     <v-btn
-                        v-bind="attrs"
-                        v-on="on"
-                        dark
-                        color="primary"
-                        class="col-5 ma-2">
+                        v-bind="attrs" v-on="on"
+                        dark color="primary" class="col-5 ma-2">
                         {{ laundry.planned? formatDate(laundry.planned) : $t('newLaundry.chooseDate') }}
                     </v-btn>
                 </template>
@@ -19,15 +16,11 @@
             </v-menu>
             <v-menu
                 :close-on-content-click="false"
-                left
-                offset-y>
+                left offset-y>
                 <template v-slot:activator="{ on, attrs }">
                     <v-btn
-                        v-bind="attrs"
-                        v-on="on"
-                        dark
-                        color="primary"
-                        class="col-5 ma-2">
+                        v-bind="attrs" v-on="on"
+                        dark color="primary" class="col-5 ma-2">
                         {{ laundry.planned? formatTime(laundry.planned) : $t('newLaundry.chooseTime') }}
                     </v-btn>
                 </template>
@@ -36,31 +29,22 @@
         </div>
         <v-select
             v-model="laundry.category"
-            :items="sortedCategories"
-            :rules="[categoryNotEmpty]"
-            :label="$t('category')"
-            filled
-            item-text="name"
-            class="ma-3"/>
+            :items="sortedCategories" :rules="[categoryNotEmpty]" :label="$t('category')"
+            item-text="name" filled class="ma-3"/>
         <v-select
             v-model="laundry.temperature"
-            :items="sortedTemperatures"
-            :rules="[temperatureNotEmpty]"
-            :label="$t('temperature')"
-            filled
-            class="ma-3"/>
+            :items="sortedTemperatures" :rules="[temperatureNotEmpty]" :label="$t('temperature')"
+            filled class="ma-3"/>
         <v-card-actions>
             <v-btn
                 @click="$emit('create', laundry)"
                 :disabled="!laundryValid"
-                dark
-                color="primary">
+                dark color="primary">
                 {{ $t('save') }}
             </v-btn>
             <v-btn
                 @click="$emit('cancel')"
-                dark
-                color="secondary">
+                dark color="secondary">
                 {{ $t('cancel') }}
             </v-btn>
         </v-card-actions>
@@ -69,13 +53,14 @@
 
 <script>
 import { vuefire } from '@/plugins/vuefire'
+import config from '@/app.config.json'
 
 export default {
     name: 'new-laundry',
     data () {
         return {
             selectedDate: null,
-            selectedTime: '08:00',
+            selectedTime: null,
             categories: [],
             temperatures: [],
             laundry: {
@@ -91,23 +76,44 @@ export default {
             }
         }
     },
+    /**
+     * set start time to avoid long user input
+     */
+    beforeMount () {
+        this.selectedTime = config.defaults.laundryStartTime
+    },
     methods: {
+        /**
+         * format date
+         */
         formatDate (date) {
             return new Date(date).toLocaleDateString('de-DE')
         },
+        /**
+         * format time
+         */
         formatTime (time) {
             return new Date(time).toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' }) + ' ' + this.$t('oClock')
         },
+        /**
+         * check if category is empty
+         */
         categoryNotEmpty (object) {
             if (!object) return this.$t('newLaundry.errMssg1')
             return true
         },
+        /**
+         * check if temperature is empty
+         */
         temperatureNotEmpty (object) {
             if (!object) return this.$t('newLaundry.errMssg2')
             return true
         }
     },
     watch: {
+        /**
+         * update laundry.planned when date input changes
+         */
         selectedDate () {
             let date = new Date()
             if (this.selectedTime) {
@@ -119,6 +125,9 @@ export default {
             date.setDate(parseInt(this.selectedDate.split('-')[2]))
             this.laundry.planned = date
         },
+        /**
+         * update laundry.planned when time input changes
+         */
         selectedTime () {
             let date = new Date()
             if (this.selectedDate) {
@@ -132,10 +141,16 @@ export default {
         }
     },
     computed: {
+        /**
+         * check if all properties for new laundry are set
+         */
         laundryValid () {
             let dateValid = this.laundry.planned && Object.prototype.toString.call(this.laundry.planned) === "[object Date]"
             return dateValid && this.laundry.category != null && this.laundry.temperature != null
         },
+        /**
+         * sort temperatures from low to high, append '°C' if number
+         */
         sortedTemperatures () {
             let arr = [].concat(this.temperatures)
             arr.sort((t1, t2) => {
@@ -143,6 +158,9 @@ export default {
             })
             return arr.map(t => isNaN(t.degree)? t.degree : t.degree + '°C')
         },
+        /**
+         * sort categories by alphabet
+         */
         sortedCategories () {
             let arr = [].concat(this.categories)
             arr.sort((c1, c2) => {

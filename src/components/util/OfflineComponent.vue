@@ -1,8 +1,6 @@
 <template>
     <v-main>
-        <div
-            class="d-flex justify-space-around align-center primary"
-            style="height: 100%">
+        <div class="d-flex justify-space-around align-center primary" style="height: 100%">
             <div class="col-12 col-md-6 text-center">
                 <v-card>
                     <v-card-text>

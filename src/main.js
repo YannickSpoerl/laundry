@@ -18,13 +18,18 @@ new Vue({
   store,
   i18n,
   vuetify,
+
+  /**
+   * Read user and locale from cookies,
+   * Determine network connection
+   */
   beforeCreate () {
     let user = cookieService.getUser()
     if (user) store.commit('login', user)
-    let language = cookieService.getLanguage()
-    if (language) {
-      store.commit('setLocale', language)
-      i18n.locale = language
+    let locale = cookieService.getLocale()
+    if (locale) {
+      store.commit('setLocale', locale)
+      i18n.locale = locale
     }
     if (navigator.onLine) {
       store.commit('setOnline', true)
