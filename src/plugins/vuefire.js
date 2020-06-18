@@ -1,15 +1,8 @@
 import firebase from 'firebase/app'
 import 'firebase/firestore'
+import config from '@/app.config.json'
 
-const firebaseConfig = {
-    apiKey: "AIzaSyBRoAuc7UkTERIhYm5dJHHCXnY-b8jkMAE",
-    authDomain: "wg-laundry.firebaseapp.com",
-    databaseURL: "https://wg-laundry.firebaseio.com",
-    projectId: "wg-laundry",
-    storageBucket: "wg-laundry.appspot.com",
-    messagingSenderId: "102605575389",
-    appId: "1:102605575389:web:41b37a202a35a6ba2df734"
-  }
+const firebaseConfig = config.firebaseConfig
 
 // Get a Firestore instance
 export const vuefire = firebase
