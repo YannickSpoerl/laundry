@@ -10,3 +10,6 @@ const firebaseConfig = config.firebaseConfig
 export const firestore = firebase
   .initializeApp(firebaseConfig)
   .firestore()
+
+
+firebase.firestore().enablePersistence()
