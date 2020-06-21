@@ -1,7 +1,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/YannickSpoerl/laundry">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://github.com/YannickSpoerl/laundry/blob/master/public/img/icons/android-chrome-192x192.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">LAUNDRY</h3>
