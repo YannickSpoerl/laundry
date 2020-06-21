@@ -42,21 +42,21 @@
     <v-card-actions>
       <v-btn
         @click="$store.dispatch('startLaundry', laundry)"
-        :disabled="!$store.state.online"
-        dark color="primary">
+        :disabled="!$store.state.online" :dark="$store.state.online"
+        color="primary">
         {{ $t('plannedLaundry.start') }}
       </v-btn>
       <v-btn
         v-if="!laundry.full"
         @click="$store.dispatch('fillLaundry', laundry)"
-        :disabled="!$store.state.online"
-        dark color="secondary">
+        :disabled="!$store.state.online" :dark="$store.state.online"
+        color="secondary">
         {{ $t('plannedLaundry.full') }}
       </v-btn>
       <v-btn
         @click="$store.dispatch('deleteLaundry', laundry)"
-        :disabled="!$store.state.online"
-        dark color="red">
+        :disabled="!$store.state.online" :dark="$store.state.online"
+        color="red">
         {{ $t('delete') }}
       </v-btn>
     </v-card-actions>
