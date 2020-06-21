@@ -31,7 +31,6 @@
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
 * [Usage](#usage)
-* [Roadmap](#roadmap)
 * [Contributing](#contributing)
 * [License](#license)
 * [Contact](#contact)
@@ -138,13 +137,6 @@ Create following collections in the firebase-database:
   "started": false
 }
 ```
-
-<!-- ROADMAP -->
-## Roadmap
-
-See the [open issues](https://github.com/YannickSpoerl/laundry/issues) for a list of proposed features (and known issues).
-
-
 
 <!-- CONTRIBUTING -->
 ## Contributing
