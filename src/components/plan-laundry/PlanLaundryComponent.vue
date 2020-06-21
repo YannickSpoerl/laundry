@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex flex-wrap primary">
+  <div class="d-flex flex-wrap primary justify-space-around">
     <v-card elevation="24" width="100%" class="white ma-2 pa-4">
       <span class="text-h5">
         {{ $t('planLaundry.title') }}
