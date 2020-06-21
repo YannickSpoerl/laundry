@@ -55,7 +55,7 @@ A Progressive Web App to manage laundry in your shared flat on your phone or des
 * [Vue.js](https://vuejs.org/)
 * [Firebase](https://firebase.google.com/)
 * [Vuetify](https://vuetifyjs.com)
-* [Vuefire](https://vuefire.vuejs.org/)
+* [Vuexfire](https://vuefire.vuejs.org/vuexfire/)
 * [Vuex](https://vuex.vuejs.org/)
 * [Vuei18n](https://kazupon.github.io/vue-i18n/)
 

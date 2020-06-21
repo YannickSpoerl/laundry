@@ -52,7 +52,6 @@
 </template>
 
 <script>
-import { vuefire } from '@/plugins/vuefire'
 import config from '@/app.config.json'
 
 export default {
@@ -61,8 +60,6 @@ export default {
         return {
             selectedDate: null,
             selectedTime: null,
-            categories: [],
-            temperatures: [],
             laundry: {
                 category: null,
                 created: new Date(),
@@ -152,7 +149,7 @@ export default {
          * sort temperatures from low to high, append '°C' if number
          */
         sortedTemperatures () {
-            let arr = [].concat(this.temperatures)
+            let arr = [].concat(this.$store.state.temperatures)
             arr.sort((t1, t2) => {
                 return t1.degree - t2.degree
             })
@@ -162,17 +159,13 @@ export default {
          * sort categories by alphabet
          */
         sortedCategories () {
-            let arr = [].concat(this.categories)
+            let arr = [].concat(this.$store.state.categories)
             arr.sort((c1, c2) => {
                 if (c1.name < c2.name) return -1
                 return 1
             })
             return arr
         }
-    },
-    firestore: {
-        categories: vuefire.collection('categories'),
-        temperatures: vuefire.collection('temperatures')
     }
 }
 </script>

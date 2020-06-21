@@ -10,7 +10,6 @@
 </template>
 
 <script>
-import { vuefire } from '@/plugins/vuefire'
 import PlanLaundry from '@/components/plan-laundry/PlanLaundryComponent'
 import FinishLaundry from '@/components/finish-laundry/FinishLaundryComponent'
 
@@ -20,15 +19,12 @@ import FinishLaundry from '@/components/finish-laundry/FinishLaundryComponent'
       PlanLaundry,
       FinishLaundry
     },
-    data: () => ({
-      laundries: []
-    }),
     computed: {
       /**
        * remove started laundries, sort nearest to top
        */
       plannedLaundries () {
-        return this.laundries.filter((laundry) => !laundry.started).sort((laundry1, laundry2) => {
+        return this.$store.state.laundries.filter((laundry) => !laundry.started).sort((laundry1, laundry2) => {
           return laundry1.planned.toDate() - laundry2.planned.toDate()
         })
       },
@@ -36,16 +32,10 @@ import FinishLaundry from '@/components/finish-laundry/FinishLaundryComponent'
        * remove unstarted laundries, sort latest to top
        */
       finishedLaundries () {
-        return this.laundries.filter((laundry) => laundry.started).sort((laundry1, laundry2) => {
+        return this.$store.state.laundries.filter((laundry) => laundry.started).sort((laundry1, laundry2) => {
           return laundry2.planned.toDate() - laundry1.planned.toDate()
         })
       }
-    },
-    firestore: {
-      categories: vuefire.collection('categories'),
-      flatmates: vuefire.collection('flatmates'),
-      laundries: vuefire.collection('laundries'),
-      temperatures: vuefire.collection('temperatures')
     }
   }
 </script>

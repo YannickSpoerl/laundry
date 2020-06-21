@@ -31,25 +31,9 @@
 </template>
 
 <script>
-import { vuefire } from '@/plugins/vuefire'
 
 export default {
-    name: 'pin',
-    data () {
-        return {
-            flatmates: [],
-            enteredPin: null,
-        }
-    },
-    mounted () {
-        console.log(this.flatmates.find((mate) => mate.name === this.$store.state.user))
-        if (this.$store.state.pin) {
-            console.log(this.flatmates.find((mate) => mate.name === this.$store.state.user))
-        }
-    },
-    firestore: {
-        flatmates: vuefire.collection('flatmates')
-    }
+    name: 'pin'
 }
 </script>
 

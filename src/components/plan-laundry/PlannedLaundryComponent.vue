@@ -39,18 +39,18 @@
     </v-card-text>
     <v-card-actions>
       <v-btn
-        @click="startLaundry()"
+        @click="$store.dispatch('startLaundry', laundry)"
         dark color="primary">
         {{ $t('plannedLaundry.start') }}
       </v-btn>
       <v-btn
         v-if="!laundry.full"
-        @click="fillLaundry()"
+        @click="$store.dispatch('fillLaundry', laundry)"
         dark color="secondary">
         {{ $t('plannedLaundry.full') }}
       </v-btn>
       <v-btn
-        @click="deleteLaundry()"
+        @click="$store.dispatch('deleteLaundry', laundry)"
         dark color="red">
         {{ $t('delete') }}
       </v-btn>
@@ -59,7 +59,6 @@
 </template>
 
 <script>
-import { transactions } from '@/plugins/vuefire'
 
 export default {
     name: 'planned-laundry-component',
@@ -76,22 +75,13 @@ export default {
      * update firebase
      */
     methods: {
-      startLaundry () {
-        transactions.startLaundry(this.laundry)
-      },
-      fillLaundry () {
-        transactions.fillLaundry(this.laundry)
-      },
       participate () {
         this.laundry.participants.push(this.$store.state.user)
-        transactions.updateParticipants(this.laundry)
+        this.$store.dispatch('updateParticipants', this.laundry)
       },
       loadLaundry () {
         this.laundry.loaded.push(this.$store.state.user)
-        transactions.updateLoaded(this.laundry)
-      },
-      deleteLaundry () {
-        transactions.deleteLaundry(this.laundry)
+        this.$store.dispatch('updateLoaded', this.laundry)
       },
       /**
        * format date

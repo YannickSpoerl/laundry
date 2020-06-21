@@ -28,7 +28,6 @@
 </template>
 
 <script>
-import { transactions } from '@/plugins/vuefire'
 import PlannedLaundry from '@/components/plan-laundry/PlannedLaundryComponent'
 import NewLaundry from '@/components/plan-laundry/NewLaundryComponent'
 
@@ -49,7 +48,7 @@ export default {
        * close new laundry form, add laundry to firestore
        */
       createNewLaundry (laundry) {
-        transactions.addLaundry(laundry)
+        this.$store.dispatch('addLaundry', laundry)
         this.newLaundry = false
       }
     }

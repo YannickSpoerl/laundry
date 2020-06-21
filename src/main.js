@@ -5,11 +5,9 @@ import store from './store'
 import vuetify from './plugins/vuetify'
 import i18n from '@/internationalization'
 import FlagIcon from 'vue-flag-icon'
-import { firestorePlugin } from 'vuefire'
 import cookieService from '@/services/cookies'
 
 Vue.use(FlagIcon)
-Vue.use(firestorePlugin)
 
 
 Vue.config.productionTip = false
@@ -36,6 +34,10 @@ new Vue({
     } else {
       store.commit('setOnline', false)
     }
+    /**
+     * bind firestore data to vuex store
+     */
+    store.dispatch('bindFirestore')
   },
   render: h => h(App)
 }).$mount('#app')

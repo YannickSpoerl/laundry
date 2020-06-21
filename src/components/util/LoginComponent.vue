@@ -10,7 +10,7 @@
                         </p>
                         <div class="d-flex flex-wrap">
                             <v-btn
-                                v-for="(mate, index) in flatmates" :key="index"
+                                v-for="(mate, index) in $store.state.flatmates" :key="index"
                                 @click="selectMate(mate.name)"
                                 :outlined="mate.name == selectedMate && !newUser"
                                 color="primary" class="col-5 col-md-3 ma-3">
@@ -50,7 +50,6 @@
 </template>
 
 <script>
-import { vuefire, transactions } from '@/plugins/vuefire'
 import cookieService from '@/services/cookies'
 
 export default {
@@ -59,7 +58,6 @@ export default {
         return {
             newUser: false,
             selectedMate: null,
-            flatmates: []
         }
     },
     methods: {
@@ -83,7 +81,7 @@ export default {
         confirm () {
             cookieService.setUser(this.selectedMate)
             this.$store.commit('login', this.selectedMate)
-            if (this.newUser) transactions.addUser(this.selectedMate)
+            if (this.newUser) this.$store.dispatch('addUser', this.selectedMate)
         },
         /**
          * check if string is empty
@@ -98,7 +96,7 @@ export default {
          */
         nameValid (string) {
             if (!string) return this.$t('login.errMssg1')
-            if (this.flatmates.find((m) => m.name.toLowerCase().replace(/\s/g, '') == string.toLowerCase().replace(/\s/g, ''))) return this.$t('login.errMssg2')
+            if (this.$store.state.flatmates.find((m) => m.name.toLowerCase().replace(/\s/g, '') == string.toLowerCase().replace(/\s/g, ''))) return this.$t('login.errMssg2')
             return true
         }
     },
@@ -112,9 +110,6 @@ export default {
             }
             return this.selectedMate !== null
         }
-    },
-    firestore: {
-        flatmates: vuefire.collection('flatmates')
     }
 }
 </script>

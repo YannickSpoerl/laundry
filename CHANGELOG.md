@@ -1,5 +1,11 @@
 # Changelog
 
+## Unrealeased
+
+### Changed
+
+- Migrated from vuefire to vuexfire
+
 ## 0.2.0 - 18.6.20
 
 ### Added
