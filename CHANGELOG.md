@@ -5,6 +5,15 @@
 ### Changed
 
 - Migrated from vuefire to vuexfire
+- Buttons are disabled when offline
+
+### Added
+
+- Data is cached by firebase and served when offline
+
+### Removed
+
+- Component that urges you to go online when offline
 
 ## 0.2.0 - 18.6.20
 

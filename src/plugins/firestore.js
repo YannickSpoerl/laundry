@@ -11,5 +11,7 @@ export const firestore = firebase
   .initializeApp(firebaseConfig)
   .firestore()
 
-
+/**
+ * enable data offline caching
+ */
 firebase.firestore().enablePersistence()
