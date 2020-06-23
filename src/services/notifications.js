@@ -1,4 +1,5 @@
 import { messaging } from '@/plugins/firebase'
+import config from '@/app.config.json'
 
 /**
  * build Notification body
@@ -7,11 +8,11 @@ function buildNotification(laundry) {
   let notification = {
     title: laundry.plannedBy + ' planned Laundry: ' + laundry.planned.toLocaleDateString('de-DE'),
     body: laundry.category + ', ' + laundry.temperature,
-    icon: 'https://laundry.yannickspoerl.de/img/icons/favicon-32x32.png'
+    icon: config.notifications.iconUrl
   }
   let obj = {
     notification: notification,
-    to: '/topics/newLaundry'
+    to: config.notifications.topic
   }
   return JSON.stringify(obj)
 }
@@ -49,9 +50,9 @@ const askForPermission = async () => {
 const subscribeToNotifications = async () => {
   if(!messaging) return
   let xhr = new XMLHttpRequest()
-  xhr.open('POST', 'https://iid.googleapis.com/iid/v1/' + await getToken() + '/rel/topics/newLaundry', true)
+  xhr.open('POST', config.notifications.subscriptionUrl + await getToken() + '/rel' + config.notifications.topic, true)
   xhr.setRequestHeader('Content-Type', 'application/json')
-  xhr.setRequestHeader('Authorization', 'key=AAAAF-PE1N0:APA91bFQ7HZNyhrI_n9OW3eeqfbNCsm_xDJmdH1X7JTbUlSE6JBn4sQG8-3Uqr3m8pr0tPFFd33bFYg2XHNiVUj6mNj4PDTTSKDC866CrJGyYobBFkvqEx4V1NopPRESmQbKoF5mRFBF')
+  xhr.setRequestHeader('Authorization', config.notifications.server)
   xhr.send()
 }
 
@@ -60,9 +61,9 @@ const subscribeToNotifications = async () => {
  */
 const fireNotification = (laundry) => {
   let xhr = new XMLHttpRequest()
-  xhr.open('POST', 'https://fcm.googleapis.com/fcm/send', true)
+  xhr.open('POST', config.notifications.sendUrl, true)
   xhr.setRequestHeader('Content-Type', 'application/json')
-  xhr.setRequestHeader('Authorization', 'key=AAAAF-PE1N0:APA91bFQ7HZNyhrI_n9OW3eeqfbNCsm_xDJmdH1X7JTbUlSE6JBn4sQG8-3Uqr3m8pr0tPFFd33bFYg2XHNiVUj6mNj4PDTTSKDC866CrJGyYobBFkvqEx4V1NopPRESmQbKoF5mRFBF')
+  xhr.setRequestHeader('Authorization', config.notifications.server)
   xhr.send(buildNotification(laundry))
 }
 
