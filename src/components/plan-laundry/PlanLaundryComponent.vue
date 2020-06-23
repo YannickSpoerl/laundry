@@ -31,6 +31,7 @@
 <script>
 import PlannedLaundry from '@/components/plan-laundry/PlannedLaundryComponent'
 import NewLaundry from '@/components/plan-laundry/NewLaundryComponent'
+import { fireNotification } from '@/services/notifications'
 
 export default {
     name: 'plan-laundry',
@@ -51,6 +52,7 @@ export default {
       createNewLaundry (laundry) {
         this.$store.dispatch('addLaundry', laundry)
         this.newLaundry = false
+        fireNotification(laundry)
       }
     }
 }

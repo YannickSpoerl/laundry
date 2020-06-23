@@ -6,6 +6,7 @@ import vuetify from './plugins/vuetify'
 import i18n from '@/internationalization'
 import FlagIcon from 'vue-flag-icon'
 import cookieService from '@/services/cookies'
+import { setSubscription, askForPermission } from '@/services/notifications'
 
 Vue.use(FlagIcon)
 
@@ -20,8 +21,12 @@ new Vue({
   /**
    * Read user and locale from cookies,
    * Determine network connection
+   * Request notifications permission
+   * Subscribe to notifications
    */
   beforeCreate () {
+    askForPermission()
+    setSubscription()
     let user = cookieService.getUser()
     if (user) store.commit('login', user)
     let locale = cookieService.getLocale()

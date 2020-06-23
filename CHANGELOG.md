@@ -1,6 +1,6 @@
 # Changelog
 
-## Unrealeased
+## 0.2.0 - 23.6.2020
 
 ### Changed
 
@@ -9,7 +9,9 @@
 
 ### Added
 
+- Notifications when new laundry was planned
 - Data is cached by firebase and served when offline
+- Icons for all platforms
 
 ### Removed
 
