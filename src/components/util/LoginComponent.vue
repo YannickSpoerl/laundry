@@ -16,6 +16,12 @@
                                 color="primary" class="col-5 col-md-3 ma-3">
                                 {{ mate.name }}
                             </v-btn>
+                            <v-btn
+                                @click="selectMate(demoAccountName)"
+                                :outlined="demoAccountName == selectedMate && !newUser"
+                                color="primary" class="col-5 col-md-3 ma-3">
+                                {{ demoAccountName }}
+                            </v-btn>
                             <v-text-field
                                 v-if="newUser" v-model="selectedMate"
                                 :rules="[stringValid, nameValid]" :label="$t('login.namePlaceholder')"
@@ -51,6 +57,7 @@
 
 <script>
 import cookieService from '@/services/cookies'
+import config from '@/app.config.json'
 
 export default {
     name: 'login',
@@ -79,6 +86,10 @@ export default {
          * set user to cookies and state, add user to firebase
          */
         confirm () {
+            if (this.selectedMate === this.demoAccountName) {
+                this.$store.commit('enterDemo')
+                return
+            }
             cookieService.setUser(this.selectedMate)
             this.$store.commit('login', this.selectedMate)
             if (this.newUser) this.$store.dispatch('addUser', this.selectedMate)
@@ -109,6 +120,9 @@ export default {
                 return (this.nameValid(this.selectedMate) == true && this.stringValid(this.selectedMate) == true)
             }
             return this.selectedMate !== null
+        },
+        demoAccountName () {
+            return config.demoAccountName
         }
     }
 }

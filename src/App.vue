@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <home v-if="$store.state.user && $store.state.locale"/>
-    <login v-if="!$store.state.user && $store.state.locale"/>
+    <home v-if="($store.state.user || $store.state.demo) && $store.state.locale"/>
+    <login v-if="!$store.state.user && $store.state.locale && !$store.state.demo"/>
     <language v-if="!$store.state.locale"/>
   </v-app>
 </template>

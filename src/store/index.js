@@ -14,9 +14,13 @@ export default new Vuex.Store({
     laundries: [],
     flatmates: [],
     categories: [],
-    temperatures: []
+    temperatures: [],
+    demo: false
   },
   mutations: {
+    enterDemo (state) {
+      state.demo = true
+    },
     login (state, user) {
       state.user = user
     },
