@@ -107,6 +107,7 @@ export default {
          */
         nameValid (string) {
             if (!string) return this.$t('login.errMssg1')
+            if (string === this.demoAccountName) return this.$t('login.errMssg2')
             if (this.$store.state.flatmates.find((m) => m.name.toLowerCase().replace(/\s/g, '') == string.toLowerCase().replace(/\s/g, ''))) return this.$t('login.errMssg2')
             return true
         }
