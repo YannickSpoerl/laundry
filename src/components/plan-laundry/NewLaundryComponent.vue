@@ -38,8 +38,8 @@
         <v-card-actions>
             <v-btn
                 @click="$emit('create', laundry)"
-                :disabled="!laundryValid"
-                dark color="primary">
+                :disabled="!laundryValid || $store.state.demo"
+                :dark="laundryValid && !$store.state.demo" color="primary">
                 {{ $t('save') }}
             </v-btn>
             <v-btn

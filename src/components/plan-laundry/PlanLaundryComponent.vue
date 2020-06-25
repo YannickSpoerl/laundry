@@ -14,7 +14,7 @@
       <v-btn
         v-if="!newLaundry"
         @click="newLaundry = true"
-        :disabled="!$store.state.online || $store.state.demo"
+        :disabled="!$store.state.online"
         outlined color="white" width="80%" height="80%" class="ma-4">
         <v-icon primary>mdi-plus</v-icon>
         <span>{{ $t('planLaundry.newLaundry') }}</span>
