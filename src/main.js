@@ -27,6 +27,8 @@ new Vue({
   beforeCreate () {
     askForPermission()
     setSubscription()
+    let pin = cookieService.getPin()
+    if (pin) store.commit('setPin', pin)
     let user = cookieService.getUser()
     if (user) store.commit('login', user)
     let locale = cookieService.getLocale()

@@ -1,7 +1,7 @@
 <template>
     <v-main>
         <div
-            class="d-flex justify-space-around align-center"
+            class="d-flex justify-space-around align-center primary"
             style="height: 100%">
             <div class="col-12 col-md-6 text-center">
                 <v-card>
@@ -19,8 +19,9 @@
                     </v-card-text>
                     <v-card-actions>
                     <v-btn
-                        dark
-                        color="primary">
+                        @click="confirm()"
+                        :disabled="!pinValid"
+                        :dark="pinValid" color="primary">
                         {{ $t('continue') }}
                     </v-btn>
                     </v-card-actions>
@@ -31,9 +32,31 @@
 </template>
 
 <script>
+import cookieService from '@/services/cookies'
 
 export default {
-    name: 'pin'
+    name: 'pin',
+    data () {
+        return {
+            enteredPin: null
+        }
+    },
+    methods: {
+        confirm () {
+            cookieService.setPin(true)
+            this.$store.commit('setPin', true)
+        }
+    },
+    computed: {
+        pinValid () {
+            for (let i = 0; i < this.$store.state.flatmates.length; i++) {
+                if (this.$store.state.flatmates[i].name === this.$store.state.user && this.$store.state.flatmates[i].pin === this.enteredPin) {
+                    return true
+                }
+            }
+            return false
+        }
+    }
 }
 </script>
 

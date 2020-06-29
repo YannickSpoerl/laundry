@@ -9,7 +9,7 @@ export default new Vuex.Store({
   state: {
     user: null,
     locale: null,
-    pin: false,
+    pin: null,
     online: null,
     laundries: [],
     flatmates: [],
@@ -18,6 +18,9 @@ export default new Vuex.Store({
     demo: false
   },
   mutations: {
+    setPin (state, pin) {
+      state.pin = pin
+    },
     enterDemo (state) {
       state.demo = true
     },
