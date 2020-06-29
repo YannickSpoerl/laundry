@@ -5,7 +5,9 @@
   </a>
 
   <h3 align="center">LAUNDRY</h3>
-
+  [![License version](https://img.shields.io/github/license/YannickSpoerl/laundry)](https://img.shields.io/github/license/YannickSpoerl/mensavue)
+[![App version](https://img.shields.io/github/package-json/v/YannickSpoerl/laundry)](https://img.shields.io/github/package-json/v/YannickSpoerl/mensavue)
+[![Build](https://img.shields.io/github/workflow/status/YannickSpoerl/laundry/Node.js%20CI)](https://img.shields.io/github/workflow/status/YannickSpoerl/mensavue/Node.js%20CI)
   <p align="center">
     Plan laundry in your shared flat!
     <br />
