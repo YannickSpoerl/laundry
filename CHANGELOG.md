@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.4.0 - 29.6.2020
+
+### Changed
+
+- Hide past laundries by default, toggle if wanted
+- Translated temperatures and categories
+
+### Added
+
+- Demo Account with only viewing abilites
+- Pin for every user
+
+
 ## 0.3.0 - 23.6.2020
 
 ### Changed
