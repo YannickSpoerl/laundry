@@ -5,11 +5,11 @@
   </a>
 
   <h3 align="center">LAUNDRY</h3>
-  <span align="center">
+  <p align="center">
   <img src="https://img.shields.io/github/license/YannickSpoerl/laundry"/>
   <img src="https://img.shields.io/github/package-json/v/YannickSpoerl/laundry"/>
   <img src="https://img.shields.io/github/workflow/status/YannickSpoerl/laundry/Build%20and%20Deploy"/>
-  </span>
+  </p>
   
   <p align="center">
     Plan laundry in your shared flat!
