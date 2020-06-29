@@ -45,5 +45,15 @@ export default {
     },
     pin: {
         title:"Enter PIN for {mate}",
+    },
+    categories: {
+        black: 'Black',
+        dark: 'Dark',
+        light: 'Light',
+        mixed: 'Mixed',
+        white: 'White'
+    },
+    temperatures: {
+        cold: 'Cold'
     }
 }

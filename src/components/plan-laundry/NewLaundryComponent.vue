@@ -153,15 +153,15 @@ export default {
             arr.sort((t1, t2) => {
                 return t1.degree - t2.degree
             })
-            return arr.map(t => isNaN(t.degree)? t.degree : t.degree + '°C')
+            return arr.map(t => isNaN(t.degree)? this.$t('temperatures.' + t.degree) : t.degree + '°C')
         },
         /**
          * sort categories by alphabet
          */
         sortedCategories () {
-            let arr = [].concat(this.$store.state.categories)
+            let arr = this.$store.state.categories.map(c => this.$t('categories.' + c.name))
             arr.sort((c1, c2) => {
-                if (c1.name < c2.name) return -1
+                if (c1 < c2) return -1
                 return 1
             })
             return arr
