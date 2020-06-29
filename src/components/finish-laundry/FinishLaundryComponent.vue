@@ -1,12 +1,18 @@
 <template>
   <div class="d-flex flex-wrap primary justify-start">
-    <v-card elevation="24" width="100%" class="white ma-2 pa-4">
+    <v-card
+      @click="oldLaundriesHidden = !oldLaundriesHidden"
+      elevation="24" width="100%" class="white ma-2 pa-4">
       <span class="text-h5">
-        {{ $t('finishLaundry.title') }}
+        <v-icon color="primary">
+          {{!oldLaundriesHidden ? 'mdi-arrow-down-drop-circle' : 'mdi-arrow-up-drop-circle'}}
+        </v-icon>
+        {{' ' + $t('finishLaundry.title') }}
       </span>
     </v-card>
     <div
       v-for="(laundry, index) in laundries" :key="index"
+      v-show="!oldLaundriesHidden"
       style="margin: 8px" class="col-12 col-md-6 col-lg-4 col-xl-3">
       <finished-laundry :laundry="laundry"/>
     </div>
@@ -21,7 +27,12 @@ export default {
     components: {
       FinishedLaundry
     },
-    props: ['laundries']
+    props: ['laundries'],
+    data () {
+      return {
+        oldLaundriesHidden: true
+      }
+    }
 }
 </script>
 
