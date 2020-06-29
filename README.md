@@ -6,7 +6,7 @@
 
   <h3 align="center">LAUNDRY</h3>
   <span align="center">
-  <img src="https://img.shields.io/github/workflow/status/YannickSpoerl/laundry/Build%20and%20Deploy"/>
+  <img src="https://img.shields.io/github/license/YannickSpoerl/laundry"/>
   <img src="https://img.shields.io/github/package-json/v/YannickSpoerl/laundry"/>
   <img src="https://img.shields.io/github/workflow/status/YannickSpoerl/laundry/Build%20and%20Deploy"/>
   </span>
