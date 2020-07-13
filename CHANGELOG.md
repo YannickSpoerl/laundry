@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.1 - 13.7.2020
+
+### Added
+
+- Add comment to new laundry
+
 ## 0.4.0 - 29.6.2020
 
 ### Changed
