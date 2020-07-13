@@ -18,6 +18,9 @@
                     {{ participant }}
                 </v-chip>
             </div>
+            <div class="text-center text--primary ma-2">
+                {{ laundry.comment }}
+            </div>
         </v-card-text>
     </v-card>
 </template>

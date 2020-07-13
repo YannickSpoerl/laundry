@@ -8,6 +8,7 @@ export default {
     delete: 'Delete',
     ready: 'ready',
     notReady: 'not ready',
+    comment: 'Comment',
     offline: {
         message: 'You are offline. Please connect to the internet to use this app!'
     },

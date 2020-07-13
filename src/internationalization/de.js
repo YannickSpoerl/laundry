@@ -8,6 +8,7 @@ export default {
     delete: 'Löschen',
     ready: 'bereit',
     notReady: 'nicht bereit',
+    comment: 'Kommentar',
     offline: {
         message: 'Keine Internetverbindung. Bitte verbinde dich, um die App zu nutzen!'
     },

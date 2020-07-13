@@ -35,6 +35,10 @@
             v-model="laundry.temperature"
             :items="sortedTemperatures" :rules="[temperatureNotEmpty]" :label="$t('temperature')"
             filled class="ma-3"/>
+        <v-textarea
+            v-model="laundry.comment"
+            :placeholder="$t('comment')" no-resize
+            rows="2" class="ma-3"/>
         <v-card-actions>
             <v-btn
                 @click="$emit('create', laundry)"
@@ -61,6 +65,7 @@ export default {
             selectedDate: null,
             selectedTime: null,
             laundry: {
+                comment: null,
                 category: null,
                 created: new Date(),
                 full: false,
